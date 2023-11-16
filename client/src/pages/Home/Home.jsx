@@ -1,9 +1,10 @@
 import React, { useState } from "react";
+import NavHome from "../../components/navHome/NavHome";
 import "./style.css";
 import imgHome from "../../images/Pngtreehealth_workers_fight_coronavirus_5349560.png";
 import { Link } from "react-router-dom";
 
-const ContainerHome = () => {
+const Home = () => {
   const [usuario, setUsuario] = useState({
     nombre: "",
     email: "",
@@ -20,11 +21,13 @@ const ContainerHome = () => {
   };
   return (
     <>
+      <NavHome />
       <div className="container-fluid">
         <div className="row">
           <div className="col-sm-12">
             <div className="d-flex justify-content-between">
               <div className="titleHome">
+                <Link to="/Dashboard">REGISTRARME</Link>
                 <p className="pHome">
                   Agenda reuniones, citas, clientes, servicios y gestiona tu
                   agenda online
@@ -110,9 +113,7 @@ const ContainerHome = () => {
                       />
                       <br />
                       <div className="text-center mt-3">
-                        <button className="btnFormLogin" type="submit">
-                        <Link to="/Dashboard">REGISTRARME</Link>
-                        </button>
+                        <button className="btnFormLogin" type="submit"></button>
                       </div>
                     </form>
                   </div>
@@ -201,4 +202,4 @@ const ContainerHome = () => {
   );
 };
 
-export default ContainerHome;
+export default Home;
