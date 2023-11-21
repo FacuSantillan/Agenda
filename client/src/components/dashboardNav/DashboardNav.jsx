@@ -1,14 +1,7 @@
 import React from "react";
 import "./style.css";
-
-// FILTRADO + NAV
-const DashboardNav = ({ cambiarFiltro, filtro }) => {
-
-  const handleFiltroClick = (filtro) => {
-    cambiarFiltro(filtro);
-
-  };
-
+import { Link } from "react-router-dom";
+const DashboardNav = () => {
   return (
     <>
       <div className="dMenu">
@@ -21,17 +14,13 @@ const DashboardNav = ({ cambiarFiltro, filtro }) => {
           >
             <i className="bx bx-menu"></i>Menu
           </p>
-          <p
-            onClick={() => handleFiltroClick("pacientes")}
-            className={filtro === "pacientes" ? "activo" : ""}
-          >
-            <i className="bx bxs-user-rectangle"></i>Pacientes
+          <p>
+            <i className="bx bxs-user-rectangle"></i>
+            <Link to="/dashboard/pacientes">Pacientes</Link>
           </p>
-          <p
-            onClick={() => handleFiltroClick("calendario")}
-            className={filtro === "calendario" ? "activo" : ""}
-          >
-            <i className="bx bx-calendar"></i>Calendario
+          <p>
+            <i className="bx bx-calendar"></i>
+            <Link to="/dashboard/calendario">Calendario</Link>
           </p>
         </div>
         <p className="titleLogo2">

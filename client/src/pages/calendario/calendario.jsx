@@ -1,5 +1,4 @@
 import React from "react";
-import Calendar from "../../components/calendar/calendar";
 
 const calendario = () => {
   return (
@@ -8,7 +7,7 @@ const calendario = () => {
         <div className="row">
           <div className="col-2">aside</div>
           <div className="col-10">
-            <Calendar />
+            calendario
           </div>
         </div>
       </div>
