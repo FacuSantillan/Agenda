@@ -1,8 +1,11 @@
 import React from "react";
+import DashboardNav from "../../components/dashboardNav/DashboardNav";
 
-const calendario = () => {
+
+const Calendario = () => {
   return (
     <>
+          <DashboardNav />
       <div className="container-fluid">
         <div className="row">
           <div className="col-2">aside</div>
@@ -15,4 +18,4 @@ const calendario = () => {
   );
 };
 
-export default calendario;
+export default Calendario;

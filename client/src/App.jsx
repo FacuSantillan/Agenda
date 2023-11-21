@@ -3,20 +3,18 @@ import Home from "./pages/Home/Home";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Pacientes from "./pages/pacientes/Pacientes";
 import Calendario from "./pages/calendario/calendario";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 
 function App() {
+const { pathname } = useLocation();
+
   return (
-    <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/dashboard/*" element={<Dashboard />}>
-          <Route path="pacientes" element={<Pacientes />} />
-          <Route path="calendario" element={<Calendario />} />
-          {/* Puedes agregar más rutas para otras secciones dentro de Dashboard */}
-        </Route>
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/dashboard/pacientes" element={<Pacientes />} />
+        <Route path="/dashboard/calendario" element={<Calendario />} />
       </Routes>
-    </BrowserRouter>
   );
 }
 
