@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import DashboardNav from "../../components/dashboardNav/DashboardNav";
 import "./style.css";
 
 const Pacientes = () => {
@@ -12,7 +11,6 @@ const Pacientes = () => {
 
   return (
     <>
-          <DashboardNav />
       <div className="container-fluid">
         <div className="row">
           <div className="col-sm-12">

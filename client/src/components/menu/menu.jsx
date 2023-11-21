@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 
 import "./style.css";
 
-const Dashboard = () => {
+const Menu = () => {
   // COLOR DEL BODY
 
   useEffect(() => {
@@ -60,5 +60,5 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Menu;
 
