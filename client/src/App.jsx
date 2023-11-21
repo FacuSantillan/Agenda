@@ -15,6 +15,7 @@ const { pathname } = useLocation();
 
       {pathname !== '/' && <DashboardNav/>}
       {pathname !== '/' && <Menu/>}
+      {pathname === '/dashboard' && <Pacientes/>}
 
       <Routes>
         <Route path="/" element={<Home />} />
