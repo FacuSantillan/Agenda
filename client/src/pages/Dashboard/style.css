@@ -1,0 +1,44 @@
+.offcanvas {
+  background-color: #004a4b;
+  color: white;
+  width: 280px !important;
+}
+
+.offcanvas-header h5 {
+  font-weight: bold;
+}
+
+.btnCloseMenuD {
+  color: #beee3b;
+  font-size: 40px;
+}
+
+.offcanvas-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.offcanvas-body i {
+  font-size: 30px;
+}
+
+.offcanvas-body p {
+  display: flex;
+  flex-direction: row;
+  font-size: 20px;
+  gap: 5px;
+  padding: 10px 0;
+  border-bottom: 2px solid;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.offcanvas-body p:hover {
+  color: #beee3b;
+  transition: 0.2s;
+}
+
+.offcanvas .btnOut {
+  color: #beee3b;
+}
