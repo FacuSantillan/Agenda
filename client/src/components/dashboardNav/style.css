@@ -1,0 +1,46 @@
+.dMenu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #004a4b;
+  color: white;
+  padding: 10px 20px;
+}
+
+.dMenu p {
+  cursor: pointer;
+  display: flex;
+  align-items: end;
+  transition: 0.2s;
+}
+
+.dMenu i {
+  font-size: 30px;
+}
+
+.dMenu p:hover {
+  color: #beee3b;
+  transition: 0.2s;
+}
+
+.comandosD {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 100px;
+}
+
+.logo2 {
+  color: #beee3b;
+  cursor: default;
+}
+
+.titleLogo2:hover {
+  color: white !important;
+  cursor: text;
+}
+
+.comandosD p.activo {
+  color: #beee3b;
+}

@@ -1,0 +1,38 @@
+.navMenu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #004a4b;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+  }
+  
+  .navMenu p {
+    cursor: pointer;
+  }
+  
+  .comandosNav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+  }
+  
+  .navMenu img {
+    width: 3pc;
+    height: 3pc;
+    margin-right: 30px;
+    margin-left: 10px;
+  }
+  
+  .btnLogin {
+    background-color: #00c9d2;
+    width: 120px;
+    text-align: center;
+    padding: 5px;
+  }
+
+  
+  
