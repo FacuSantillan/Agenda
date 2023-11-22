@@ -23,6 +23,7 @@ const { pathname } = useLocation();
         <Route path="/dashboard/pacientes" element={<Pacientes />}/>
         <Route path="/dashboard/calendario" element={<Calendario />}/>
       </Routes>
+      
     </div>
   );
 }
