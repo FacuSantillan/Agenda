@@ -28,11 +28,25 @@ module.exports = (sequelize) => {
       type :DataTypes.STRING ,
       allowNull: false,
       unique: false,
+      get() {
+        const rawValue = this.getDataValue('dias');
+        return rawValue ? JSON.parse(rawValue) : null;
+      },
+      set(value) {
+        this.setDataValue('dias', JSON.stringify(value));
+      }
     },
     horas:{
       type :DataTypes.STRING ,
       allowNull: false,
       unique: false,
+      get() {
+        const rawValue = this.getDataValue('horas');
+        return rawValue ? JSON.parse(rawValue) : null;
+      },
+      set(value) {
+        this.setDataValue('horas', JSON.stringify(value));
+      }
     },
   });
 };

@@ -1,36 +1,28 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
-  sequelize.define('Turno', {
+  sequelize.define('Usuario', {
       id: {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
         allowNull: false,
         primaryKey: true,
       },
-      estado: {
+      clinica: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      hora:{
+      nombre:{
         type: DataTypes.STRING,
         allowNull: false,
       },
-      fecha:{
+      email:{
         type: DataTypes.STRING,
         allowNull: false,
       },
-      notas: {
+      rol:{
         type: DataTypes.STRING,
         allowNull: false,
       },
-      dniProfesional: {
-        type: DataTypes.STRING,
-        allowNull: true,
-      },
-      dniPaciente: {
-        type: DataTypes.STRING,
-        allowNull: true,
-      }
   });
 };

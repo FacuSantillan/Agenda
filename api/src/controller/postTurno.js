@@ -1,22 +1,22 @@
 const { Turno } = require('../db');
 
 const createTurno = async (data) => {
-    const { DNI, nombre, domicilio, celular, obraSocial, fechaDeNacimiento } = data
+    const { estado, hora, fecha, notas, dniProfesional, dniPaciente } = data
 
     const newTurno = await Turno.create({
-        DNI,
-        nombre,
-        domicilio,
-        celular,
-        obraSocial,
-        fechaDeNacimiento
+        estado,
+        hora,
+        fecha,
+        notas,
+        dniProfesional,
+        dniPaciente
     });
 
     const result = await Turno.findOne({
         where: {
-            DNI: newTurno.DNI,
+            id: newTurno.id,
         },
-        attributes: [ 'DNI', 'nombre', 'domicilio', 'celular', 'obraSocial', 'fechaDeNacimiento'],
+        attributes: [ 'id', 'estado', 'hora', 'fecha', 'notas', 'dniProfesional', 'dniPaciente'],
     });
     
     return result;
