@@ -1,7 +1,9 @@
-const postProfesional = require('../controller/postProfesional');
-const postPaciente = require('../controller/postPaciente');
-const postTurno = require('../controller/postTurno');
-const postUsuario = require('../controller/postUsuario');
+const postProfesional = require('../controller/RoutesPost/postProfesional');
+const postPaciente = require('../controller/RoutesPost/postPaciente');
+const postTurno = require('../controller/RoutesPost/postTurno');
+const postUsuario = require('../controller/RoutesPost/postUsuario');
+
+const getPacientes = require('../controller/RoutesGet/getPacientes');
 
 //------------------------Crear Profesional------------------------//
 
@@ -115,12 +117,25 @@ const createUsuario = async (req, res) => {
     }
 };
 
+//------------------------Obtener Pacientes y sus turnos------------------------//
+const getPaciente = async(req, res) => {
+    try {
+        const response = await getPacientes();
 
-
+        if(response.length){
+            res.status(200).json(response); // Si hay reservas, se envía la respuesta 200
+        } else {
+            res.status(400).json('No hay pacientes momentaneamente.'); // Si no hay reservas, se envía la respuesta 400
+        }
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    };
+};
 
 module.exports = {
     createProfesional,
     createPaciente,
     createTurno,
-    createUsuario
+    createUsuario,
+    getPaciente
 }

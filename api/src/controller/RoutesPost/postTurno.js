@@ -1,4 +1,4 @@
-const { Turno } = require('../db');
+const { Turno } = require('../../db');
 
 const createTurno = async (data) => {
     const { estado, hora, fecha, notas, dniProfesional, dniPaciente } = data

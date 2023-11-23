@@ -1,4 +1,4 @@
-const { Paciente } = require('../db');
+const { Paciente } = require('../../db');
 
 const createPaciente = async (data) => {
     const { DNI, nombre, domicilio, celular, obraSocial, fechaDeNacimiento } = data

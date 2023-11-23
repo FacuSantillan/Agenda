@@ -1,4 +1,4 @@
-const { Usuario } = require('../db');
+const { Usuario } = require('../../db');
 
 const createUsuario = async (data) => {
     const { clinica, nombre, email, rol } = data

@@ -1,4 +1,4 @@
-const { Profesional } = require('../db');
+const { Profesional } = require('../../db');
 
 const createProfesional = async (data) => {
     const { DNI, nombre, especialidad, celular, dias, horas } = data
