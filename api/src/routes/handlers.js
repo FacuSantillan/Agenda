@@ -9,9 +9,9 @@ const getPacientes = require('../controller/RoutesGet/getPacientes');
 
 const createProfesional = async (req, res) => {
     try {
-        const { DNI, nombre, especialidad, celular, dias, horas } = req.body;
-        const dia = JSON.stringify(dias);
-        const hora = JSON.stringify(horas);
+        const { DNI, nombre, especialidad, celular, dia, hora } = req.body;
+        const dias = JSON.stringify(dia);
+        const horas = JSON.stringify(hora);
 
         if (!( DNI && nombre && especialidad && celular && dias && horas)) {
             return res.status(400).send('Faltan datos');
@@ -22,8 +22,8 @@ const createProfesional = async (req, res) => {
             nombre, 
             especialidad, 
             celular, 
-            dia,
-            hora
+            dias,
+            horas
         };
 
         const newProfesional = await postProfesional(data);
@@ -69,9 +69,9 @@ const createPaciente = async (req, res) => {
 
 const createTurno = async (req, res) => {
     try {
-        const { estado, hora, fecha, notas, dniProfesional, dniPaciente  } = req.body;
+        const { estado, hora, fecha, notas, ProfesionalDNI, PacienteDNI  } = req.body;
 
-        if (!( estado && hora && fecha && dniProfesional && dniPaciente)) {
+        if (!( estado && hora && fecha && ProfesionalDNI && PacienteDNI)) {
             return res.status(400).send('Faltan datos');
         };
   
@@ -80,8 +80,8 @@ const createTurno = async (req, res) => {
             hora,
             fecha,
             notas,
-            dniProfesional,
-            dniPaciente
+            ProfesionalDNI,
+            PacienteDNI
         };
 
         const newTurno = await postTurno(data);

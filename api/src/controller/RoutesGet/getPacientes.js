@@ -2,6 +2,7 @@ const { Paciente, Turno } = require('../../db')
 const { Sequelize } = require("sequelize");
 
 const getAllReservas = async () => {
+
     const response = await Paciente.findAll({
         attributes: [
             'DNI',
@@ -11,10 +12,10 @@ const getAllReservas = async () => {
             'obraSocial',
             'fechaDeNacimiento',
         ],
+
         include: {
             model: Turno,
-            where: { dniPaciente: Sequelize.col('Paciente.DNI') }, // Filtrar por el DNI del paciente
-            attributes: ['estado', 'hora', 'fecha', 'notas', 'dniProfesional'],
+            attributes: ['estado', 'hora', 'fecha', 'notas', 'ProfesionalDNI', 'PacienteDNI'],
         },
     });
 
@@ -26,13 +27,13 @@ const getAllReservas = async () => {
             celular: res.dataValues.celular,
             obraSocial: res.dataValues.obraSocial,
             fechaDeNacimiento: res.dataValues.fechaDeNacimiento,
-            turnos: res.dataValues.Turnos.map((turno) => {
+            Turno: res.dataValues.Turnos.map((turno) => { 
                 return {
-                    estado: turno.estado,
-                    hora: turno.hora,
-                    fecha: turno.fecha,
-                    notas: turno.notas,
-                    dniProfesional: turno.dniProfesional
+                    estado: turno.dataValues.estado,
+                    hora: turno.dataValues.hora,
+                    fecha: turno.dataValues.fecha,
+                    notas: turno.dataValues.notas,
+                    ProfesionalDNI: turno.dataValues.ProfesionalDNI
                 };
             }),
         };
