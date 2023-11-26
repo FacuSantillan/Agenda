@@ -5,7 +5,9 @@ const { createProfesional,
         createUsuario, 
         createTurno } = require('./handlers')
 
-const { getPaciente } = require('./handlers')
+const { getPaciente,
+        getProfesional,
+        getTurno } = require('./handlers')
 
 const router = Router();
 
@@ -17,6 +19,7 @@ router.post('/postTurno', createTurno)
 
 //Routes gets:
 router.get('/getpacientes', getPaciente)
-
+router.get('/getprofesional', getProfesional)
+router.get('/getturno', getTurno)
 
 module.exports = router;
