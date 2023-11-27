@@ -1,11 +1,18 @@
+//Controllers Post
 const postProfesional = require('../controller/RoutesPost/postProfesional');
 const postPaciente = require('../controller/RoutesPost/postPaciente');
 const postTurno = require('../controller/RoutesPost/postTurno');
 const postUsuario = require('../controller/RoutesPost/postUsuario');
 
+//Controllers Get
 const getPacientes = require('../controller/RoutesGet/getPacientes');
 const getProfesionales = require('../controller/RoutesGet/getProfesionales');
 const getTurnos = require('../controller/RoutesGet/getTurnos');
+
+//Controllers Put
+const putPaciente = require('../controller/RoutesPut/putPaciente');
+const putProfesional = require('../controller/RoutesPut/putProfesional');
+const putTurno = require('../controller/RoutesPut/putTurno');
 
 
 //------------------------Crear Profesional------------------------//
@@ -131,7 +138,7 @@ const getPaciente = async(req, res) => {
     };
 };
 
-//------------------------Obtener Pacientes y sus turnos------------------------//
+//------------------------Obtener Profesionales y sus turnos------------------------//
 const getProfesional = async(req, res) => {
     try {
         const response = await getProfesionales();
@@ -151,7 +158,7 @@ const getProfesional = async(req, res) => {
     };
 };
 
-//------------------------Obtener Pacientes y sus turnos------------------------//
+//------------------------Obtener turnos------------------------//
 const getTurno = async(req, res) => {
     try {
         const response = await getTurnos();
@@ -159,12 +166,51 @@ const getTurno = async(req, res) => {
         if(response.length){
             res.status(200).json(response); 
         } else {
-            res.status(400).json('No hay pacientes momentaneamente.');
+            res.status(400).json('No hay turnos momentaneamente.');
         }
     } catch (error) {
         res.status(500).json({ error: error.message });
     };
 };
+
+//------------------------Modificar datos de Paciente------------------------//
+const updatePaciente = async(req, res) =>{
+
+try {
+    const pacientes = await putPaciente(req);
+    res.status(200).json(pacientes)
+
+} catch (error) {
+    res.status(500).json({ error: error.message });
+}
+
+};
+
+//------------------------Modificar datos de Profesional------------------------//
+const updateProfesional = async(req, res) =>{
+
+    try {
+        const profesional = await putProfesional(req);
+        res.status(200).json(profesional)
+    
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+    
+    };
+
+//------------------------Modificar datos de Turno------------------------//
+const updateTurno = async(req, res) =>{
+
+    try {
+        const turno = await putTurno(req);
+        res.status(200).json(turno)
+    
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+    
+    };
 
 
 
@@ -175,5 +221,8 @@ module.exports = {
     createUsuario,
     getPaciente,
     getProfesional,
-    getTurno
+    getTurno,
+    updatePaciente,
+    updateProfesional,
+    updateTurno
 }
