@@ -1,0 +1,115 @@
+.modal-content {
+  border-radius: 30px;
+}
+
+.modal-header {
+  border-bottom: none;
+}
+
+.modal-footer {
+  border-top: none;
+}
+
+.titleHome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  width: 34pc;
+  margin: 12pc 3pc;
+}
+
+.titleHome .pHome {
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 2pc;
+  margin-bottom: 20px;
+}
+
+.btnRegister {
+  background-color: #beee3b;
+  width: 230px;
+  text-align: center;
+  padding: 14px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.imgHome {
+  margin-right: 5pc;
+}
+
+.imgHome img {
+  width: 48pc;
+  max-width: 100%;
+}
+
+.modal-header h1 {
+  font-size: 35px;
+  color: #beee3b;
+  font-weight: bold;
+  margin: 0;
+}
+
+.modal-header small {
+  letter-spacing: 1px;
+}
+
+.section-home .modal-header .btn-close {
+  position: absolute;
+  right: 30px;
+  top: 30px;
+}
+
+.modal-body form {
+  display: flex;
+  flex-direction: column;
+  padding: 0 60px;
+}
+
+.modal-body label {
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
+  letter-spacing: 1px;
+  color: black;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.modal-body form input {
+  border-radius: 20px;
+  background-color: #00c9d2;
+  border: none;
+  height: 35px;
+  padding: 0 20px;
+}
+
+.modal-body input {
+  box-shadow: 0px 6px 3px 0px rgba(0, 0, 0, 0.21);
+  -webkit-box-shadow: 0px 6px 3px 0px rgba(0, 0, 0, 0.21);
+  -moz-box-shadow: 0px 6px 3px 0px rgba(0, 0, 0, 0.21);
+}
+
+.btnFormLogin {
+  font-size: 20px;
+  padding: 8px;
+  width: 180px;
+  border-radius: 25px;
+  font-weight: bold;
+  background-color: #beee3b;
+  color: white;
+}
+
+.modal-footer p {
+  color: black;
+  letter-spacing: 0px;
+}
+
+.modal-footer span {
+  color: black;
+  letter-spacing: 0px;
+  margin-left: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+}

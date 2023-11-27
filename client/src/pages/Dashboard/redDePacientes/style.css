@@ -1,0 +1,8 @@
+.form-1-1 .inputSmall {
+  width: 140px;
+}
+
+.form-1-1 .inter {
+  display: flex;
+justify-content: space-between;
+}
