@@ -10,7 +10,7 @@ const deleteProfesional = async (req, res) => {
         });
         
         if (!profesional) {
-            return res.status(404).json({ message: 'Paciente no encontrado' });
+            return res.status(404).json({ message: 'Profesional no encontrado' });
         }
 
     await profesional.destroy();
