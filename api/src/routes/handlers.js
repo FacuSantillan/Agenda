@@ -14,6 +14,10 @@ const putPaciente = require('../controller/RoutesPut/putPaciente');
 const putProfesional = require('../controller/RoutesPut/putProfesional');
 const putTurno = require('../controller/RoutesPut/putTurno');
 
+//Controllers Delete
+const deletePaciente = require('../controller/RoutesDelete/deletePaciente');
+const deleteProfesional = require('../controller/RoutesDelete/deleteProfesional');
+const deleteTurno = require('../controller/RoutesDelete/deleteTurno');
 
 //------------------------Crear Profesional------------------------//
 const createProfesional = async (req, res) => {
@@ -211,6 +215,36 @@ const updateTurno = async(req, res) =>{
     }
     
     };
+//------------------------Eliminar paciente------------------------//
+const deletePacientes = async(req, res) =>{
+    try {
+        const paciente = await deletePaciente(req);
+        res.status(200).json('Paciente eliminado correctamente.')
+    
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+//------------------------Eliminar profesional------------------------//
+const deleteProfesionals = async(req, res) =>{
+    try {
+        const profesional = await deleteProfesional(req);
+        res.status(200).json('profesional eliminado correctamente.')
+    
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+//------------------------Eliminar turno------------------------//
+const deleteTurnos = async(req, res) =>{
+    try {
+        const turno = await deleteTurno(req);
+        res.status(200).json('turno eliminado correctamente.')
+    
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
 
 
 
@@ -224,5 +258,8 @@ module.exports = {
     getTurno,
     updatePaciente,
     updateProfesional,
-    updateTurno
+    updateTurno,
+    deletePacientes,
+    deleteProfesionals,
+    deleteTurnos
 }
