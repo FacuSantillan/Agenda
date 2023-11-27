@@ -10,11 +10,11 @@ const deleteTurno = async (req, res) => {
         });
         
         if (!turno) {
-            return res.status(404).json({ message: 'Paciente no encontrado' });
+            return res.status(404).json({ message: 'Turno no encontrado' });
         }
 
     await turno.destroy();
 };
 
-module.exports = deletePaciente
+module.exports = deleteTurno
 
