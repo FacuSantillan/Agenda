@@ -24,13 +24,14 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      dniProfesional: {
+      ProfesionalDNI: {
         type: DataTypes.STRING,
         allowNull: true,
       },
-      dniPaciente: {
+      PacienteDNI: {
         type: DataTypes.STRING,
         allowNull: true,
       }
+      
   });
 };

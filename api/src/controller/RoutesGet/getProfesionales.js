@@ -1,16 +1,16 @@
-const { Paciente, Turno } = require('../../db')
+const { Profesional, Turno } = require('../../db')
 const { Sequelize } = require("sequelize");
 
-const getAllPacientes = async () => {
+const getAllProfesional = async () => {
 
-    const response = await Paciente.findAll({
+    const response = await Profesional.findAll({
         attributes: [
             'DNI',
             'nombre',
-            'domicilio',
+            'especialidad',
             'celular',
-            'obraSocial',
-            'fechaDeNacimiento',
+            'dias',
+            'horas',
         ],
 
         include: {
@@ -23,21 +23,21 @@ const getAllPacientes = async () => {
         return {
             DNI: res.dataValues.DNI,
             nombre: res.dataValues.nombre,
-            domicilio: res.dataValues.domicilio,
+            especialidad: res.dataValues.especialidad,
             celular: res.dataValues.celular,
-            obraSocial: res.dataValues.obraSocial,
-            fechaDeNacimiento: res.dataValues.fechaDeNacimiento,
+            dias: res.dataValues.dias,
+            horas: res.dataValues.horas,
             Turno: res.dataValues.Turnos.map((turno) => { 
                 return {
                     estado: turno.dataValues.estado,
                     hora: turno.dataValues.hora,
                     fecha: turno.dataValues.fecha,
                     notas: turno.dataValues.notas,
-                    ProfesionalDNI: turno.dataValues.ProfesionalDNI
+                    PacienteDNI: turno.dataValues.PacienteDNI
                 };
             }),
         };
     });
 };
 
-module.exports = getAllPacientes;
+module.exports = getAllProfesional;
