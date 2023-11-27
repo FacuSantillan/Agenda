@@ -16,5 +16,5 @@ const deleteProfesional = async (req, res) => {
     await profesional.destroy();
 };
 
-module.exports = deletePaciente
+module.exports = deleteProfesional
 
