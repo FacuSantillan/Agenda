@@ -46,6 +46,9 @@ const Pacientes = () => {
                       <p>
                         HORA:<span>XX:XX</span>
                       </p>
+                      <p>
+                        Dr:<span>Victor Ruiz</span>
+                      </p>
                     </aside>
                   </div>
                 </div>

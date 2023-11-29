@@ -152,6 +152,7 @@ span {
   color: #484848;
   border: none;
   font-size: 27px;
+  font-weight: 100;
   letter-spacing: 1px;
   text-align: justify;
 }

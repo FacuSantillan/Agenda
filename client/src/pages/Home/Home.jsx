@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   const [usuario, setUsuario] = useState({
-    nombre: "",
     email: "",
+    nombre: "",
     password: "",
     confirmarPassword: "",
   });
@@ -22,12 +22,11 @@ const Home = () => {
   return (
     <>
       <NavHome />
-      <div className="container-fluid">
+      <div className="container-fluid section-home">
         <div className="row">
           <div className="col-sm-12">
             <div className="d-flex justify-content-between">
               <div className="titleHome">
-                <Link to="/Dashboard">REGISTRARME</Link>
                 <p className="pHome">
                   Agenda reuniones, citas, clientes, servicios y gestiona tu
                   agenda online
@@ -113,7 +112,7 @@ const Home = () => {
                       />
                       <br />
                       <div className="text-center mt-3">
-                        <button className="btnFormLogin" type="submit"></button>
+                        <button className="btnFormLogin" type="submit">Confirmar</button>
                       </div>
                     </form>
                   </div>

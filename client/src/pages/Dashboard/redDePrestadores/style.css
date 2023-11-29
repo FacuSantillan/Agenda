@@ -1,0 +1,227 @@
+.headRDP {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 2pc;
+  padding: 0 4pc;
+}
+
+.headRDP h1 {
+  letter-spacing: 1px;
+}
+
+.headRDP .form-1 {
+  background-color: #00c9d2;
+  padding: 10px 15px;
+  border-radius: 25px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0px 6px 3px 0px rgba(0, 0, 0, 0.21);
+  -webkit-box-shadow: 0px 6px 3px 0px rgba(0, 0, 0, 0.21);
+  -moz-box-shadow: 0px 6px 3px 0px rgba(0, 0, 0, 0.21);
+}
+
+.headRDP input {
+  background: none;
+  border: none;
+  border-bottom: 2px solid #909090;
+}
+
+.headRDP form button {
+  background: none;
+  color: #484848;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-left: 10px;
+  position: relative;
+  top: 3px;
+}
+
+.planillaRed {
+  background-color: #dddddd;
+  padding: 25px;
+  border-radius: 15px;
+  margin: 0 30px;
+}
+
+.planillaRed .r-t {
+  font-weight: 100;
+}
+
+.planillaRed p {
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+}
+
+.planillaRed i {
+  font-size: 60px;
+}
+
+.planillaRed .row-red {
+  padding: 10px 0 0 !important;
+}
+
+.planillaRed .row {
+  border-bottom: 2px solid;
+  margin: 0;
+  padding: 20px 0px;
+}
+
+.addDoctor {
+  background-color: #beee3b;
+  color: #484848;
+  padding: 10px 25px;
+  border-radius: 20px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  box-shadow: 0px 6px 3px 0px rgba(0, 0, 0, 0.21);
+  -webkit-box-shadow: 0px 6px 3px 0px rgba(0, 0, 0, 0.21);
+  -moz-box-shadow: 0px 6px 3px 0px rgba(0, 0, 0, 0.21);
+  transition: 0.3s;
+}
+
+.addDoctor:hover {
+  transition: 0.3s;
+  background-color: #d1ff54;
+}
+
+.section-rdp .modal-header {
+  padding: 15px 15px 5px;
+}
+
+.section-rdp .modal-header .btn-close {
+  margin-right: 5px;
+  margin-top: 5px;
+}
+
+.section-rdp .modal-header p {
+  margin-left: 10px;
+  margin-top: 5px;
+  letter-spacing: 1px;
+}
+
+.section-rdp .modal-body {
+  padding: 0;
+}
+
+.section-rdp form {
+  padding: 0px 40px;
+}
+
+.section-rdp .modal-footer {
+  padding: 0 15px 15px;
+}
+
+.section-rdp .modal-body .form-1 label {
+  margin-bottom: 0;
+  margin-top: 13px;
+}
+
+textarea {
+  resize: none;
+  height: 200px !important;
+  border-radius: 20px;
+  background-color: #00c9d2;
+  border: none;
+  padding: 15px 20px;
+  outline: none;
+}
+
+.modal-footer .saveChanges {
+  background-color: #beee3b;
+  color: #484848;
+  padding: 10px 25px;
+  border-radius: 20px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.modal-footer .btnescartar {
+  background-color: #d8d8d8;
+  color: #484848;
+  padding: 10px 25px;
+  border-radius: 20px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.selectDate .checkDay {
+  cursor: pointer;
+}
+
+.selectDate label {
+  margin: 0;
+}
+
+.section-rdp .comandosDyH {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 9px 10px;
+  margin-bottom: 8px;
+}
+
+.section-rdp .form-check-input:checked {
+  background-color: #beee3b;
+}
+
+.section-rdp .selectDay {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 8px;
+}
+
+.section-rdp .selectDay label {
+  font-size: 15px;
+}
+
+.section-rdp .selectDay input {
+  height: 30px;
+  padding: 0 15px;
+}
+
+.section-rdp .comandosDyH button {
+  padding: 10px 10px;
+  border-radius: 20px;
+  display: flex;
+  background-color: #beee3b;
+  box-shadow: 0px 6px 3px 0px rgba(0, 0, 0, 0.21);
+  -webkit-box-shadow: 0px 6px 3px 0px rgba(0, 0, 0, 0.21);
+  -moz-box-shadow: 0px 6px 3px 0px rgba(0, 0, 0, 0.21);
+}
+
+.section-rdp .comandosDyH input {
+  padding: 0px 10px;
+  text-align: center;
+}
+
+.section-rdp .hora {
+  margin-right: 3px;
+}
+
+.hora::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+}
+
+.section-rdp .btnVerRef {
+  background-color: #00c9d2;
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
+  letter-spacing: 1px;
+  color: black;
+  padding: 6px 20px;
+  border-radius: 20px;
+  box-shadow: 0px 6px 3px 0px rgba(0, 0, 0, 0.21);
+  -webkit-box-shadow: 0px 6px 3px 0px rgba(0, 0, 0, 0.21);
+  -moz-box-shadow: 0px 6px 3px 0px rgba(0, 0, 0, 0.21);
+  transition: 0.3s;
+}
+
+.section-rdp .card {
+  border-radius: 20px;
+}
+
+.section-rdp .form-2 {
+  padding: 0px 40px 0 10px;
+}

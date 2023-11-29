@@ -106,17 +106,16 @@ const createTurno = async (req, res) => {
 //------------------------Crear Usuario------------------------//
 const createUsuario = async (req, res) => {
     try {
-        const { clinica, nombre, email, rol  } = req.body;
+        const { clinica, contraseña, email  } = req.body;
 
-        if (!( clinica && nombre && email && rol )) {
+        if (!( clinica && contraseña && email )) {
             return res.status(400).send('Faltan datos');
         };
   
         const data = {
             clinica,
-            nombre,
+            contraseña,
             email,
-            rol
         };
 
         const newUsuario = await postUsuario(data);
