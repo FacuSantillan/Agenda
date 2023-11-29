@@ -14,14 +14,18 @@ const DashboardNav = () => {
           >
             <i className="bx bx-menu"></i>Menu
           </p>
-          <p>
-            <i className="bx bxs-user-rectangle"></i>
-            <Link to="/dashboard/pacientes">Pacientes</Link>
-          </p>
-          <p>
-            <i className="bx bx-calendar"></i>
-            <Link to="/dashboard/calendario">Calendario</Link>
-          </p>
+          <Link to="/dashboard/pacientes">
+            <p>
+              <i className="bx bxs-user-rectangle"></i>
+              Pacientes
+            </p>
+          </Link>
+          <Link to="/dashboard/calendario">
+            <p>
+              <i className="bx bx-calendar"></i>
+              Calendario
+            </p>
+          </Link>
         </div>
         <p className="titleLogo2">
           <i className="bx bxs-clinic logo2"></i>Nombre del establecimiento

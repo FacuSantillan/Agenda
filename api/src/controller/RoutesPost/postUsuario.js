@@ -1,7 +1,16 @@
 const { Usuario } = require('../../db');
 
-const createUsuario = async (data) => {
-    const { clinica, nombre, email, rol } = data
+const createUsuario = async (data, res) => {
+    const { clinica, nombre, email } = data
+
+    if(email !== ''){
+        const usuario = await Usuario.findOne({
+            where: {
+                email: email,
+            }
+        })
+        return res.status(400).send('Usuario existente.')
+    }
 
     const newUsuario = await Usuario.create({
         clinica,
@@ -14,7 +23,7 @@ const createUsuario = async (data) => {
         where: {
             id: newUsuario.id,
         },
-        attributes: [  'clinica', 'nombre', 'email', 'rol' ],
+        attributes: [ 'clinica', 'contraseña', 'email' ],
     });
     
     return result;

@@ -15,6 +15,10 @@
   transition: 0.2s;
 }
 
+.dMenu a {
+  color: white;
+}
+
 .dMenu i {
   font-size: 30px;
 }

@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 
 import "./style.css";
+import { Link } from "react-router-dom";
 
 const Menu = () => {
   // COLOR DEL BODY
@@ -11,7 +12,7 @@ const Menu = () => {
     return () => {
       document.body.style.backgroundColor = originalBodyBackgroundColor;
     };
-  }, [])
+  }, []);
 
   return (
     <div className="body">
@@ -35,16 +36,19 @@ const Menu = () => {
         </div>
         <div className="offcanvas-body">
           <div>
-            <p>
-              <i className="bx bx-group"></i>Red de prestadores
-            </p>
-
+            <Link to={"/dashboard/redDePrestadores"}>
+              <p>
+                <i className="bx bx-group"></i>Red de prestadores
+              </p>
+            </Link>
             <p>
               <i className="bx bx-edit"></i>Dias Y horarios
             </p>
-            <p>
-              <i className="bx bx-user-plus"></i>Registrar paciente
-            </p>
+            <Link to={"/dashboard/redDepacientes"}>
+              <p>
+                <i className="bx bx-user-plus"></i>Registrar paciente
+              </p>
+            </Link>
           </div>
           <div>
             <p>
@@ -61,4 +65,3 @@ const Menu = () => {
 };
 
 export default Menu;
-
