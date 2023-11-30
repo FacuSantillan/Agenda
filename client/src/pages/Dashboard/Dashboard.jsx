@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import "./style.css";
 
 const Dashboard = () => {
-  // COLOR DEL BODY
+
   useEffect(() => {
     const originalBodyBackgroundColor = document.body.style.backgroundColor;
     document.body.style.backgroundColor = "white";
@@ -12,7 +12,11 @@ const Dashboard = () => {
     };
   }, []);
 
-  return <div className="body"></div>;
+  return (
+    <div className="body">
+
+    </div>
+  );
 };
 
 export default Dashboard;

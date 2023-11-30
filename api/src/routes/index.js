@@ -4,7 +4,8 @@ const { Router } = require('express');
 const { createProfesional,
         createPaciente,
         createUsuario, 
-        createTurno } = require('./handlers')
+        createTurno,
+        loginUsuario } = require('./handlers')
 
 //Gets
 const { getPaciente,
@@ -30,6 +31,7 @@ router.post('/postProfesional', createProfesional);
 router.post('/postPaciente', createPaciente); 
 router.post('/postUsuario', createUsuario);
 router.post('/postTurno', createTurno);
+router.post('/loginUsuario', loginUsuario);
 
 //Routes gets:
 router.get('/getpacientes', getPaciente);

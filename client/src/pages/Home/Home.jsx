@@ -1,15 +1,22 @@
 import React, { useState } from "react";
-import NavHome from "../../components/navHome/NavHome";
-import "./style.css";
-import imgHome from "../../images/Pngtreehealth_workers_fight_coronavirus_5349560.png";
-import { Link } from "react-router-dom";
+import { useDispatch, connect } from 'react-redux'
+import { createUsuario, loginUsuario, guardarInformacion } from '../../redux/action'
+import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
 
-const Home = () => {
+import NavHome from "../../components/navHome/NavHome";
+import imgHome from "../../images/Pngtreehealth_workers_fight_coronavirus_5349560.png";
+import 'react-toastify/dist/ReactToastify.css';
+import "./style.css";
+
+const Home = ({ guardarInformacion }) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const [usuario, setUsuario] = useState({
     email: "",
-    nombre: "",
-    password: "",
-    confirmarPassword: "",
+    clinica: "",
+    contraseña: "",
   });
 
   const handleChange = (e) => {
@@ -19,8 +26,83 @@ const Home = () => {
       [name]: value,
     });
   };
+
+  const handleSubmit = (event) => {
+    guardarInformacion(usuario);
+    event.preventDefault();
+    if (!usuario.email || !usuario.clinica || !usuario.contraseña || !usuario.confirmarPassword) {
+      if (!usuario.email) {
+        toast.error("Por favor, ingrese un correo electrónico.",{
+          position: toast.POSITION.BOTTOM_RIGHT,
+        });
+      }
+      if (!usuario.clinica) {
+        toast.error("Por favor, ingrese el nombre del establecimiento.",{
+          position: toast.POSITION.BOTTOM_RIGHT,
+        });
+      }
+      if (!usuario.contraseña) {
+        toast.error("Por favor, ingrese una contraseña.",{
+          position: toast.POSITION.BOTTOM_RIGHT,
+        });
+      }
+      if (!usuario.confirmarPassword) {
+        toast.error("Por favor, confirme la contraseña.",{
+          position: toast.POSITION.BOTTOM_RIGHT,
+        });
+      }
+    } else
+    dispatch(createUsuario(usuario)).then((response) => {
+      if (response.payload.status === 201) {
+        toast.error("El usuario ya existe. Intente con otro correo.",{
+          position: toast.POSITION.BOTTOM_RIGHT,
+        })
+      } else {
+        toast.success("¡Registro exitoso! Redireccionando...",{
+          position: toast.POSITION.BOTTOM_RIGHT,
+        })
+        setTimeout(() => {
+          navigate('/dashboard');
+        }, 5650);
+      }
+    });
+  };
+
+  const handleLoginSubmit = (event) =>{
+    event.preventDefault();
+    if (!usuario.email || !usuario.contraseña) {
+      if (!usuario.email) {
+        toast.error("Por favor, ingrese su correo electrónico.",{
+          position: toast.POSITION.BOTTOM_RIGHT,
+          })};
+      if (!usuario.contraseña) {
+        toast.error("Por favor, ingrese su contraseña.",{
+          position: toast.POSITION.BOTTOM_RIGHT,
+          });
+    }
+  }
+    dispatch(loginUsuario(usuario)).then((response) => {
+      if (response.payload.status !== 200) {
+        toast.error("Email o contraseña incorrectos.",{
+          position: toast.POSITION.BOTTOM_RIGHT,
+        })};
+
+      if (response.payload.status === 200) {
+        toast.success("¡Login exitoso! Redireccionando...",{
+          position: toast.POSITION.BOTTOM_RIGHT,
+        })
+        setTimeout(() => {
+          navigate('/dashboard');
+        }, 5650)};   
+        
+      
+  }
+   )
+  }
+
   return (
     <>
+    <ToastContainer/>
       <NavHome />
       <div className="container-fluid section-home">
         <div className="row">
@@ -69,7 +151,7 @@ const Home = () => {
                       <label htmlFor="email">Email</label>
                       <input
                         type="email"
-                        id="email"
+                        id="email1"
                         name="email"
                         value={usuario.email}
                         onChange={handleChange}
@@ -77,23 +159,23 @@ const Home = () => {
                       />
                       <br />
 
-                      <label htmlFor="nombre">Nombre del establecimiento</label>
+                      <label htmlFor="clinica">Nombre del establecimiento</label>
                       <input
                         type="text"
-                        id="nombre"
-                        name="nombre"
-                        value={usuario.nombre}
+                        id="clinica"
+                        name="clinica"
+                        value={usuario.clinica}
                         onChange={handleChange}
                         // required
                       />
                       <br />
 
-                      <label htmlFor="password"> Crear contraseña</label>
+                      <label htmlFor="contraseña"> Crear contraseña</label>
                       <input
                         type="password"
-                        id="password"
-                        name="password"
-                        value={usuario.password}
+                        id="contraseña"
+                        name="contraseña"
+                        value={usuario.contraseña}
                         onChange={handleChange}
                         // required
                       />
@@ -106,13 +188,13 @@ const Home = () => {
                         type="password"
                         id="confirmarPassword"
                         name="confirmarPassword"
-                        value={usuario.confirmarPassword}
+                        value={usuario.confirmcontraseña}
                         onChange={handleChange}
                         // required
                       />
                       <br />
                       <div className="text-center mt-3">
-                        <button className="btnFormLogin" type="submit">Confirmar</button>
+                        <button className="btnFormLogin" type="submit" onClick={handleSubmit}>Confirmar</button>
                       </div>
                     </form>
                   </div>
@@ -164,16 +246,16 @@ const Home = () => {
                       <label htmlFor="password">Contraseña</label>
                       <input
                         type="password"
-                        id="password"
-                        name="password"
-                        value={usuario.password}
+                        id="contraseña"
+                        name="contraseña"
+                        value={usuario.contraseña}
                         onChange={handleChange}
-                        required
+                        // required
                       />
                       <br />
 
                       <div className="text-center mt-3">
-                        <button className="btnFormLogin" type="submit">
+                        <button className="btnFormLogin" type="submit" onClick={handleLoginSubmit}>
                           INGRESAR
                         </button>
                       </div>
@@ -201,4 +283,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default connect(null, { guardarInformacion })(Home);

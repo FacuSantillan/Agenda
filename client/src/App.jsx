@@ -9,6 +9,7 @@ import DashboardNav from "./components/dashboardNav/DashboardNav";
 import Menu from "./components/menu/menu";
 import { Routes, Route, useLocation } from "react-router-dom";
 
+
 function App() {
   const { pathname } = useLocation();
 
@@ -23,10 +24,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/dashboard/pacientes" element={<Pacientes />} />
         <Route path="/dashboard/calendario" element={<Calendario />} />
-        <Route
-          path="/dashboard/redDePrestadores"
-          element={<RedDePrestadores />}
-        />
+        <Route path="/dashboard/redDePrestadores" element={<RedDePrestadores />}/>
         <Route path="/dashboard/redDePacientes" element={<RedDePacientes />} />s
       </Routes>
     </div>

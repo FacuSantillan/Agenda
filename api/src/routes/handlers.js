@@ -19,6 +19,7 @@ const deletePaciente = require('../controller/RoutesDelete/deletePaciente');
 const deleteProfesional = require('../controller/RoutesDelete/deleteProfesional');
 const deleteTurno = require('../controller/RoutesDelete/deleteTurno');
 
+const { Usuario } = require('../db')
 //------------------------Crear Profesional------------------------//
 const createProfesional = async (req, res) => {
     try {
@@ -106,25 +107,64 @@ const createTurno = async (req, res) => {
 //------------------------Crear Usuario------------------------//
 const createUsuario = async (req, res) => {
     try {
-        const { clinica, contraseña, email  } = req.body;
+        const { clinica, contraseña, email } = req.body;
 
-        if (!( clinica && contraseña && email )) {
+        if (!(clinica && contraseña && email)) {
             return res.status(400).send('Faltan datos');
         };
-  
-        const data = {
+
+        const usuarioExistente = await Usuario.findOne({
+            where: {
+                email: email,
+            }
+        });
+
+        if (usuarioExistente) {
+            return res.status(201).json({ message: 'El usuario ya existe' });
+        }
+
+        const newUsuario = await Usuario.create({
             clinica,
             contraseña,
-            email,
-        };
+            email
+        });
 
-        const newUsuario = await postUsuario(data);
         res.status(200).json(newUsuario);
 
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
 };
+//------------------------Validar Usuario------------------------//
+const loginUsuario = async (req, res) => {
+    try {
+        const { contraseña, email } = req.body;
+
+        if (!(contraseña && email)) {
+            return res.status(400).send('Faltan datos');
+        };
+
+        const usuarioExistente = await Usuario.findOne({
+            where: {
+                email: email,
+            }
+        });
+
+        if (!usuarioExistente) {
+            return res.status(201).json({ message: 'Usuario no encontrado' });
+        }
+
+        if (contraseña !== usuarioExistente.contraseña) {
+            return res.status(202).json({ message: 'Contraseña incorrecta' });
+        }
+
+        res.status(200).json(usuarioExistente);
+
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+
 
 //------------------------Obtener Pacientes y sus turnos------------------------//
 const getPaciente = async(req, res) => {
@@ -260,5 +300,6 @@ module.exports = {
     updateTurno,
     deletePacientes,
     deleteProfesionals,
-    deleteTurnos
+    deleteTurnos,
+    loginUsuario
 }

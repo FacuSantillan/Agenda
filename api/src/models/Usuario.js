@@ -10,7 +10,7 @@ module.exports = (sequelize) => {
       },
       clinica: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
       },
       contraseña:{
         type: DataTypes.STRING,
