@@ -31,6 +31,7 @@ export const loginUsuario = (data) => {
 
 //informacion de login
 export const guardarInformacion = (informacion) => {
+    console.log(informacion)
     return {
         type: 'GUARDAR_INFORMACION',
         payload: informacion,

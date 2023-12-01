@@ -69,6 +69,7 @@ const Home = ({ guardarInformacion }) => {
   };
 
   const handleLoginSubmit = (event) =>{
+    guardarInformacion(usuario);
     event.preventDefault();
     if (!usuario.email || !usuario.contraseña) {
       if (!usuario.email) {
@@ -147,7 +148,7 @@ const Home = ({ guardarInformacion }) => {
                     ></button>
                   </div>
                   <div className="modal-body">
-                    <form>
+                    <form onSubmit={handleSubmit}>
                       <label htmlFor="email">Email</label>
                       <input
                         type="email"
@@ -231,7 +232,7 @@ const Home = ({ guardarInformacion }) => {
                     ></button>
                   </div>
                   <div className="modal-body">
-                    <form>
+                    <form onSubmit={handleSubmit}>
                       <label htmlFor="email">Email</label>
                       <input
                         type="email"

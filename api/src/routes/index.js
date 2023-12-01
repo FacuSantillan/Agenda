@@ -22,8 +22,6 @@ const { deletePacientes,
         deleteProfesionals,
         deleteTurnos } = require('./handlers')
 
-
-
 const router = Router();
 
 //Routes post:

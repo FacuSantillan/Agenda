@@ -19,6 +19,12 @@ const deletePaciente = require('../controller/RoutesDelete/deletePaciente');
 const deleteProfesional = require('../controller/RoutesDelete/deleteProfesional');
 const deleteTurno = require('../controller/RoutesDelete/deleteTurno');
 
+//json web token
+const jwt = require('jsonwebtoken');
+const key = require('../jwt/keys');
+const express = require('express');
+const app = express();
+
 const { Usuario } = require('../db')
 //------------------------Crear Profesional------------------------//
 const createProfesional = async (req, res) => {
@@ -137,12 +143,13 @@ const createUsuario = async (req, res) => {
 };
 //------------------------Validar Usuario------------------------//
 const loginUsuario = async (req, res) => {
+    app.set('key', key.key);
     try {
         const { contraseña, email } = req.body;
 
         if (!(contraseña && email)) {
             return res.status(400).send('Faltan datos');
-        };
+        }
 
         const usuarioExistente = await Usuario.findOne({
             where: {
@@ -151,19 +158,51 @@ const loginUsuario = async (req, res) => {
         });
 
         if (!usuarioExistente) {
-            return res.status(201).json({ message: 'Usuario no encontrado' });
+            return res.status(404).json({ message: 'Usuario no encontrado' });
         }
 
         if (contraseña !== usuarioExistente.contraseña) {
-            return res.status(202).json({ message: 'Contraseña incorrecta' });
+            return res.status(401).json({ message: 'Contraseña incorrecta' });
         }
 
-        res.status(200).json(usuarioExistente);
+        const payload = {
+            check: true
+        };
+
+        const token = jwt.sign(payload, app.get('key'), {
+            expiresIn: '7d'
+        });
+        const verification = express.Router();
+
+        verification.use((req, res, next) =>{
+            let token = req.headers['x-access-token'] || req.headers['authorization'];
+            if(!token){
+                res.status(401).send({error:'sin token.'})
+                return
+            }
+            if(token.startsWith('Bearer')){
+                token = token.slice(7, token.length);
+            };
+            if(token)
+                jwt.verify(token, app.get('key'), (err, decoded)=>{
+            if(err){
+                return res.json({
+                    message:'Token invalido.'
+                });
+            }else{
+                req.decoded = decoded;
+                next();
+            }
+            })
+        });
+
+        res.status(200).json({ message: usuarioExistente, token: token });
 
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
 };
+
 
 
 //------------------------Obtener Pacientes y sus turnos------------------------//

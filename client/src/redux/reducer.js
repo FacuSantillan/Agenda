@@ -7,11 +7,11 @@ import {CREATE_USUARIO,
 const initialState = {
     allData:[],
     usuario:[],
+    token:[],
     informacion:[]
 };
 
 function reducer(state = initialState, action) {
-
 switch (action.type) {
     case CREATE_USUARIO:
       return {
@@ -21,7 +21,8 @@ switch (action.type) {
         case LOGIN_USUARIO:
           return {
             ...state,
-              usuario: action.payload,
+            usuario: action.payload,
+            token: action.payload.data.token,
             };
             case GUARDAR_INFORMACION:
               return {
@@ -33,5 +34,4 @@ switch (action.type) {
         return state;
       }
     };
-
 export default reducer;
