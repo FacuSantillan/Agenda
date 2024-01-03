@@ -12,7 +12,7 @@ import Menu from "./components/menu/menu";
 import { Routes, Route, useLocation } from "react-router-dom";
 
 // axios.defaults.baseURL = 'http://localhost:3001/'
-axios.defaults.baseURL = 'https://agenda-production-7bbe.up.railway.app/'
+axios.defaults.baseURL = 'https://colossal-bells-production.up.railway.app/'
 
 function App() {
   const { pathname } = useLocation();
