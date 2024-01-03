@@ -283,7 +283,6 @@ const updateProfesional = async(req, res) =>{
 
 //------------------------Modificar datos de Turno------------------------//
 const updateTurno = async(req, res) =>{
-
     try {
         const turno = await putTurno(req);
         res.status(200).json(turno)

@@ -16,7 +16,6 @@ function Dashboard({guardarInformacion}) {
     contraseña: informacion.contraseña,
     clinica: '',
   });
-    console.log(key)
 
     useEffect(() => {
       const token = localStorage.getItem('token');
