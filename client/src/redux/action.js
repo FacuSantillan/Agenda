@@ -1,5 +1,4 @@
 import axios from 'axios';
-const URL = 'http://localhost:3001';
 
 //------------------Creacion y exportacion de TYPES------------------//
 export const CREATE_USUARIO = 'CREATE_USUARIO';
@@ -10,7 +9,7 @@ export const GUARDAR_INFORMACION = 'GUARDAR_INFORMACION'
 //registrar usuario
 export const createUsuario = (data) => {
     return async (dispatch) => {
-        const response = await axios.post(`${URL}/postUsuario`, data);
+        const response = await axios.post(`/postUsuario`, data);
         return dispatch({
             type: 'CREATE_USUARIO',
             payload: response,
@@ -21,7 +20,7 @@ export const createUsuario = (data) => {
 //loguear usuario
 export const loginUsuario = (data) => {
     return async (dispatch) => {
-        const response = await axios.post(`${URL}/loginUsuario`, data);
+        const response = await axios.post(`/loginUsuario`, data);
         return dispatch({
             type: 'LOGIN_USUARIO',
             payload: response,

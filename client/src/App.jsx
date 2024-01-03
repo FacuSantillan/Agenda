@@ -1,4 +1,5 @@
 import React from "react";
+import axios from 'axios'
 import Home from "./pages/Home/Home";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Pacientes from "./pages/pacientes/Pacientes";
@@ -7,8 +8,11 @@ import RedDePacientes from "./pages/Dashboard/redDePacientes/redDePacientes";
 import Calendario from "./pages/calendario/calendario";
 import DashboardNav from "./components/dashboardNav/DashboardNav";
 import Menu from "./components/menu/menu";
+
 import { Routes, Route, useLocation } from "react-router-dom";
 
+// axios.defaults.baseURL = 'http://localhost:3001/'
+axios.defaults.baseURL = 'https://agenda-production-7bbe.up.railway.app/'
 
 function App() {
   const { pathname } = useLocation();
