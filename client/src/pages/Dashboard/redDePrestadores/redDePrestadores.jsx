@@ -264,34 +264,7 @@ const RedDePrestadores = () => {
               <p>Lunes a viernes</p>
             </div>
           </div>
-          <div className="row d-flex align-items-center">
-            <div className="col-2 text-center">
-              <i class="fa-solid fa-user-doctor"></i>
-            </div>
-            <div className="col-3">
-              <p>Alejando Galan</p>
-            </div>
-            <div className="col-3">
-              <p>Cirujano</p>
-            </div>
-            <div className="col-4">
-              <p>Lunes, miercoles, viernes</p>
-            </div>
-          </div>
-          <div className="row d-flex align-items-center">
-            <div className="col-2 text-center">
-              <i class="fa-solid fa-user-doctor"></i>
-            </div>
-            <div className="col-3">
-              <p>Leonel Andres Messi Cuccittini</p>
-            </div>
-            <div className="col-3">
-              <p>Fisioterapeuta</p>
-            </div>
-            <div className="col-4">
-              <p>Sabado</p>
-            </div>
-          </div>
+          
         </section>
       </div>
     </>

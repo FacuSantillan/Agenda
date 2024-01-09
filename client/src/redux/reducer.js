@@ -1,14 +1,16 @@
 //---------------------importacion de los types--------------------------------//
 import {CREATE_USUARIO,
         LOGIN_USUARIO,
-        GUARDAR_INFORMACION} from "./action";
+        GUARDAR_INFORMACION,
+        ERROR_LOGIN} from "./action";
 
 //---------------------Estados iniciales--------------------------------//
 const initialState = {
     allData:[],
     usuario:[],
     token:[],
-    informacion:[]
+    informacion:[],
+    error:[],
 };
 
 function reducer(state = initialState, action) {
@@ -29,6 +31,11 @@ switch (action.type) {
                 ...state,
                 informacion: action.payload
               };
+              case ERROR_LOGIN:
+                return {
+                  ...state,
+                    error: action.payload,
+                  };
               
         default:
         return state;

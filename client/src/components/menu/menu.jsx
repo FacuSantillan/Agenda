@@ -5,15 +5,6 @@ import { Link } from "react-router-dom";
 
 const Menu = () => {
   // COLOR DEL BODY
-
-  useEffect(() => {
-    const originalBodyBackgroundColor = document.body.style.backgroundColor;
-    document.body.style.backgroundColor = "white";
-    return () => {
-      document.body.style.backgroundColor = originalBodyBackgroundColor;
-    };
-  }, []);
-
   return (
     <div className="body">
       <div

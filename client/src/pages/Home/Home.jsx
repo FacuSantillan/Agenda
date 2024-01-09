@@ -1,11 +1,12 @@
-import React, { useState } from "react";
-import { useDispatch, connect } from 'react-redux'
+import React, { useEffect, useState } from "react";
+import { useDispatch, connect, useSelector } from 'react-redux'
 import { createUsuario, loginUsuario, guardarInformacion } from '../../redux/action'
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 
 import NavHome from "../../components/navHome/NavHome";
 import imgHome from "../../images/Pngtreehealth_workers_fight_coronavirus_5349560.png";
+
 import 'react-toastify/dist/ReactToastify.css';
 import "./style.css";
 
@@ -18,6 +19,10 @@ const Home = ({ guardarInformacion }) => {
     clinica: "",
     contraseña: "",
   });
+
+  useEffect (() =>{
+    localStorage.clear()
+  },[])
 
   const handleChange = (e) => {
     const { name, value } = e.target;
