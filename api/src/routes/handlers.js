@@ -59,10 +59,10 @@ const createProfesional = async (req, res) => {
 //------------------------Crear Paciente------------------------//
 const createPaciente = async (req, res) => {
     try {
-        const { DNI, nombre, domicilio, celular, obraSocial, fechaDeNacimiento } = req.body;
+        const { DNI, nombre, domicilio, celular, fechaDeNacimiento } = req.body;
 
 
-        if (!( DNI && nombre && domicilio && celular && obraSocial && fechaDeNacimiento)) {
+        if (!( DNI && nombre && domicilio && celular && fechaDeNacimiento)) {
             return res.status(400).send('Faltan datos');
         };
   

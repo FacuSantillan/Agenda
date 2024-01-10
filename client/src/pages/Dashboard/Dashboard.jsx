@@ -1,21 +1,33 @@
-import React, { useEffect } from "react";
-import { useSelector, connect } from 'react-redux';
+import React, { useEffect, useState } from "react";
+import { useSelector, connect, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { guardarInformacion } from '../../redux/action'
 
-function Dashboard() {
+function Dashboard({ guardarInformacion }) {
+  const dispatch = useDispatch()
   const navigate = useNavigate();
   const key = useSelector(state => state.token);
+  const information = useSelector(state => state.informacion)
 
   useEffect(() => {
-    if (!localStorage.getItem('token')) {
-      localStorage.setItem('token', key);
-      window.location.reload()
-    }
     const token = localStorage.getItem('token');
+
     if (!token) {
-      navigate('/'); 
+      localStorage.setItem('token', key);
+      localStorage.setItem('userData', JSON.stringify(information));
+      window.location.reload()
+    } else {
+      const storedInformation = JSON.parse(localStorage.getItem('userData'));
+      if (storedInformation !== information) {
+        localStorage.setItem('userData', JSON.stringify(information));
+      }
     }
-  }, [navigate, key]);
+  }, [dispatch, key, information]);
+
+  if (!key) {
+    navigate('/'); // Redirige si no hay token
+    return null;
+  }
 
   return (
     <div>
@@ -23,4 +35,4 @@ function Dashboard() {
   );
 };
 
-export default connect(null)(Dashboard);
+export default connect(null, { guardarInformacion })(Dashboard);

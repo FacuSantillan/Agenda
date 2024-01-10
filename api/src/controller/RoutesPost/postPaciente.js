@@ -19,7 +19,7 @@ const createPaciente = async (data) => {
         domicilio,
         celular,
         obraSocial,
-        fechaDeNacimiento
+        fechaDeNacimiento,
     });
 
     const result = await Paciente.findOne({

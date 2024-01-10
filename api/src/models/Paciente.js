@@ -16,7 +16,7 @@ module.exports = (sequelize) => {
     },
     domicilio: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
       unique: false,
     },
     celular:{
@@ -26,7 +26,7 @@ module.exports = (sequelize) => {
     },
     obraSocial:{
       type :DataTypes.STRING ,
-      allowNull: false,
+      allowNull: true,
       unique: false,
     },
     fechaDeNacimiento:{

@@ -33,7 +33,7 @@ const Home = ({ guardarInformacion }) => {
   };
 
   const handleSubmit = (event) => {
-    guardarInformacion(usuario);
+    dispatch(guardarInformacion(usuario))
     event.preventDefault();
     if (!usuario.email || !usuario.clinica || !usuario.contraseña || !usuario.confirmarPassword) {
       if (!usuario.email) {

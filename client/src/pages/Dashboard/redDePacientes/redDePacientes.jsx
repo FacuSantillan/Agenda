@@ -54,7 +54,7 @@ const redDePacientes = () => {
                 <div className="row">
                   <div className="col-6">
                     <form className="form-1 form-1-1">
-                      <label className="mt-0">Nombre Completo</label>
+                      <label className="mt-0">Nombre Completo*</label>
                       <input
                         type="text"
                         id="nombreCompleto"
@@ -82,17 +82,17 @@ const redDePacientes = () => {
                         </div>
                       </div>
 
-                      <label>DNI</label>
+                      <label>DNI*</label>
                       <input type="text" id="dni" name="dni" />
 
-                      <label>Fecha de nacimiento</label>
+                      <label>Fecha de nacimiento*</label>
                       <input
                         type="text"
                         id="fechaDeNacimiento"
                         name="fechaDeNacimiento"
                       />
 
-                      <label>Telefono</label>
+                      <label>Telefono*</label>
                       <input type="text" id="celular" name="celular" />
 
                       <label>Correo Electrónico</label>
@@ -106,7 +106,7 @@ const redDePacientes = () => {
 
                   <div className="col-6">
                     <form className="form-1">
-                      <label>Domicilio</label>
+                      <label>Domicilio*</label>
                       <input type="text" id="domicilio" name="domicilio" />
 
                       <label>Obra social</label>
