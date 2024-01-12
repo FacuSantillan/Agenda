@@ -5,6 +5,8 @@ export const CREATE_USUARIO = 'CREATE_USUARIO';
 export const LOGIN_USUARIO = 'LOGIN_USUARIO';
 export const GUARDAR_INFORMACION = 'GUARDAR_INFORMACION'
 export const ERROR_LOGIN = "ERROR_LOGIN"
+export const LOAD_PACIENTES = "LOAD_PACIENTES"
+export const GET_CLIENT_NAME = 'GET_CLIENT_NAME'
 //---------------------------Actions------------------------------------//
 
 //registrar usuario
@@ -40,3 +42,29 @@ export const guardarInformacion = (informacion) => {
         payload: informacion,
     };
 };
+
+//todos los pacientes 
+export const loadPacientes = (data) => {
+    return async (dispatch) => {
+        const response = await axios.get(`/getpacientes`, data);
+        return dispatch({
+            type: 'LOAD_PACIENTES',
+            payload: response.data,
+        });
+    };
+}
+
+//buscar pacientes
+export function getPacienteName (date) {
+    return async function (dispatch) {
+      try {
+        const response = await axios.get(`/getName?name=${date}`);
+       
+        return dispatch({
+          type: 'GET_CLIENT_NAME',
+          payload: response.data,
+        });
+      } catch (error) {
+
+    }};
+  }

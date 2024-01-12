@@ -1,7 +1,22 @@
 import React from "react";
+
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { ToastContainer, toast } from 'react-toastify';
+import { loadPacientes } from "../../../redux/action";
+
+import Searchbar from '../../../components/searchbar/sbPacientes'
+import Cards from '../../../components/card/cards'
 import "./style.css";
 
-const redDePacientes = () => {
+const redDePacientes = (props) => {
+  const dispatch = useDispatch()
+  const pacientes = useSelector(state => state.pacientes)
+console.log(pacientes)
+  useEffect(()=>{
+    dispatch(loadPacientes())
+  },[])
+
   return (
     <>
       <div className="container-fluid section-rdp">
@@ -11,13 +26,7 @@ const redDePacientes = () => {
               <h1>Pacientes</h1>
               <div className="d-flex align-items-center gap-3">
                 <form className="form-1">
-                  <input
-                    type="text"
-                    id="agregar"
-                    name="q"
-                    placeholder="Buscar paciente"
-                  />
-                  <button type="submit">BUSCAR</button>
+                  <Searchbar/>
                 </form>
                 <button
                   className="addDoctor"
@@ -145,48 +154,8 @@ const redDePacientes = () => {
               <p className="r-t">Proximo turno</p>
             </div>
           </div>
-          <div className="row d-flex align-items-center">
-            <div className="col-2 text-center">
-              <i class="fa-solid fa-user"></i>
-            </div>
-            <div className="col-3">
-              <p>Valentina García</p>
-            </div>
-            <div className="col-3">
-              <p>XX.XXX.XXX</p>
-            </div>
-            <div className="col-4">
-              <p>XX/XX/XXXX</p>
-            </div>
-          </div>
-          <div className="row d-flex align-items-center">
-            <div className="col-2 text-center">
-              <i class="fa-solid fa-user"></i>
-            </div>
-            <div className="col-3">
-              <p>Martín Rodríguez</p>
-            </div>
-            <div className="col-3">
-              <p>XX.XXX.XXX</p>
-            </div>
-            <div className="col-4">
-              <p>XX/XX/XXXX</p>
-            </div>
-          </div>
-          <div className="row d-flex align-items-center">
-            <div className="col-2 text-center">
-              <i class="fa-solid fa-user"></i>
-            </div>
-            <div className="col-3">
-              <p>Carolina López</p>
-            </div>
-            <div className="col-3">
-              <p>XX.XXX.XXX</p>
-            </div>
-            <div className="col-4">
-              <p>XX/XX/XXXX</p>
-            </div>
-          </div>
+        <Cards pacientes={pacientes} key={Cards}/>
+          
         </section>
       </div>
     </>

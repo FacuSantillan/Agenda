@@ -8,6 +8,7 @@ const postUsuario = require('../controller/RoutesPost/postUsuario');
 const getPacientes = require('../controller/RoutesGet/getPacientes');
 const getProfesionales = require('../controller/RoutesGet/getProfesionales');
 const getTurnos = require('../controller/RoutesGet/getTurnos');
+const getClientByName = require('../controller/RoutesGet/getByName')
 
 //Controllers Put
 const putPaciente = require('../controller/RoutesPut/putPaciente');
@@ -322,6 +323,15 @@ const deleteTurnos = async(req, res) =>{
         res.status(500).json({ error: error.message });
     }
 };
+//------------------------Buscar paciente por nombre------------------------//
+const filterByName = async (req, res) => {
+    try {
+        const response = await getClientByName(req);
+        res.status(200).json(response);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
 
 
 
@@ -339,5 +349,6 @@ module.exports = {
     deletePacientes,
     deleteProfesionals,
     deleteTurnos,
-    loginUsuario
+    loginUsuario,
+    filterByName
 }

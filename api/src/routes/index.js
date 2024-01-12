@@ -10,7 +10,8 @@ const { createProfesional,
 //Gets
 const { getPaciente,
         getProfesional,
-        getTurno } = require('./handlers')
+        getTurno,
+        filterByName } = require('./handlers')
 
 //Put
 const { updatePaciente,
@@ -35,6 +36,7 @@ router.post('/loginUsuario', loginUsuario);
 router.get('/getpacientes', getPaciente);
 router.get('/getprofesional', getProfesional);
 router.get('/getturno', getTurno);
+router.get('/getname', filterByName);
 
 //Routes Put:
 router.put('/updatepaciente/:dni', updatePaciente);
