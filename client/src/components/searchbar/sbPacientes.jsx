@@ -28,11 +28,11 @@ export default function Searchbar(props) {
     return (
         <div>
             <input
+                className="form-1"
                 placeholder='Buscar por nombre.'
                 value={searchValue}
                 onChange={(event) => handleSearch(event.target.value)}
-                onKeyDown={handleKeyDown}
-                onKeyUp={handleEnter}
+
             />
         </div>
     )

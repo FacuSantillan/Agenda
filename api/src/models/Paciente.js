@@ -31,7 +31,22 @@ module.exports = (sequelize) => {
     },
     fechaDeNacimiento:{
       type :DataTypes.STRING ,
-      allowNull: false,
+      allowNull: true,
+      unique: false,
+    },
+    correoElectronico:{
+      type :DataTypes.STRING ,
+      allowNull: true,
+      unique: false,
+    },
+    Edad:{
+      type :DataTypes.STRING ,
+      allowNull: true,
+      unique: false,
+    },
+    CUIL:{
+      type :DataTypes.STRING ,
+      allowNull: true,
       unique: false,
     },
   });

@@ -12,6 +12,7 @@ import "./style.css";
 const redDePacientes = (props) => {
   const dispatch = useDispatch()
   const pacientes = useSelector(state => state.pacientes)
+  
 console.log(pacientes)
   useEffect(()=>{
     dispatch(loadPacientes())
@@ -25,9 +26,9 @@ console.log(pacientes)
             <div className="headRDP">
               <h1>Pacientes</h1>
               <div className="d-flex align-items-center gap-3">
-                <form className="form-1">
+
                   <Searchbar/>
-                </form>
+                  
                 <button
                   className="addDoctor"
                   data-bs-toggle="modal"

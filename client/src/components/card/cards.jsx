@@ -5,7 +5,7 @@ export default function Cards(props) {
     const data = useSelector((state) => state.pacientes);
     
     if (!Array.isArray(data)) {
-        return <div className={style.error}>No hay reservas momentaneamente.</div>;
+        return <div style={{ color: 'red', fontSize: '16px', fontWeight: 'bold', textAlign:'center' }}>No hay reservas momentaneamente.</div>;
     }
 
     return (
