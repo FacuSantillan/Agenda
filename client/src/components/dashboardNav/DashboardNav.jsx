@@ -6,7 +6,6 @@ import { guardarInformacion } from '../../redux/action'
 
 const DashboardNav = () => {
   const information = useSelector(state => state.informacion)
-  console.log(information)
 
   return (
     <>

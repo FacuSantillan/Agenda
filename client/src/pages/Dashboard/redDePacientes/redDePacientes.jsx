@@ -12,11 +12,26 @@ import "./style.css";
 const redDePacientes = (props) => {
   const dispatch = useDispatch()
   const pacientes = useSelector(state => state.pacientes)
-  
-console.log(pacientes)
+
   useEffect(()=>{
     dispatch(loadPacientes())
   },[])
+
+  if (pacientes == []) {
+    return <div style={{ color: 'red', fontSize: '16px', fontWeight: 'bold', textAlign:'center' }}>No hay reservas momentaneamente.</div>;
+}
+
+  const [ pacienteData, SetPacienteData ] = useState({
+      DNI: '',
+      nombre:'',
+      domicilio: '',
+      celular: '',
+      obraSocial: '',
+      fechaDeNacimiento: '',
+      CUIL:'',
+      correoElectronico:'',
+      edad:'',
+  })
 
   return (
     <>

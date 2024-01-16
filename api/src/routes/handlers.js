@@ -214,7 +214,7 @@ const getPaciente = async(req, res) => {
         if(response.length){
             res.status(200).json(response); 
         } else {
-            res.status(400).json('No hay pacientes momentaneamente.');
+            res.status(201).json('No hay pacientes momentaneamente.');
         }
     } catch (error) {
         res.status(500).json({ error: error.message });

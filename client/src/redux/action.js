@@ -46,11 +46,16 @@ export const guardarInformacion = (informacion) => {
 //todos los pacientes 
 export const loadPacientes = (data) => {
     return async (dispatch) => {
-        const response = await axios.get(`/getpacientes`, data);
-        return dispatch({
-            type: 'LOAD_PACIENTES',
-            payload: response.data,
-        });
+        try {
+            const response = await axios.get(`/getpacientes`, data);
+            console.log(response)
+            return dispatch({
+                type: 'LOAD_PACIENTES',
+                payload: response.data,
+            });    
+        } catch (error) {
+            
+        }
     };
 }
 
@@ -59,7 +64,6 @@ export function getPacienteName (date) {
     return async function (dispatch) {
       try {
         const response = await axios.get(`/getName?name=${date}`);
-       
         return dispatch({
           type: 'GET_CLIENT_NAME',
           payload: response.data,
